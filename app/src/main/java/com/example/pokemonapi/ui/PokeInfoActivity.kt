@@ -10,28 +10,32 @@ import com.example.pokemonapi.R
 import kotlinx.android.synthetic.main.activity_pokeinfo.*
 
 class PokeInfoActivity: AppCompatActivity() {
-    //Declarar VM
+    // Declarar VM.
     lateinit var viewModel: PokeInfoViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pokeinfo)
 
-        //Inicializar VM
+        // Inicializar VM.
         viewModel = ViewModelProvider(this).get(PokeInfoViewModel::class.java)
         initUI()
     }
 
     private fun initUI(){
+        // "intent" recupera el id de PokeListActivity.
         val id = intent.extras?.get("id") as Int
 
-        //obtener info
+        // Obtenemos
         viewModel.getPokemonInfo(id)
-        //escuchar cambios en la info
+
+        // Verificamos si hay cambios y lo reasignamos en la vista.
         viewModel.pokemonInfo.observe(this, Observer { pokemon ->
             nameTextView.text = pokemon.name
             heightTextView.text = "Altura ${pokemon.height/10.0}m"
             weightTextView.text = "Peso ${pokemon.weight/10.0}"
 
+            // Glide se encarga de cargar la imagen y lo coloca en su componente asigando de la vista.
             Glide.with(this).load(pokemon.sprites.frontDefault).into(imageView)
         })
     }
