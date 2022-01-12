@@ -3,7 +3,7 @@ package com.example.pokemonapi.model.api
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-// Pokemon almacena las pripiedades que tiene un pokemón en específico
+// Pokemon declara las pripiedades que tiene un pokemón en específico en la API
 
 data class Pokemon(
 
@@ -19,7 +19,7 @@ data class Pokemon(
     @Expose @SerializedName("sprites") val sprites: Sprites
 )
 
-// Sprites alamcena la pripiedad de la imagen de un pokemon en específico
+// Sprites declara la pripiedad de la imagen de un pokemon en específico en la API
 
 data class Sprites (
     @Expose @SerializedName("front_default") val frontDefault: String?,

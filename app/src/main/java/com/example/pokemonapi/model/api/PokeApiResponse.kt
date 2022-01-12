@@ -3,7 +3,7 @@ package com.example.pokemonapi.model.api
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-// PokeApiResponse almacena las propiedades a las que deseamos acceder de la sección Pokemon
+// PokeApiResponse declara las propiedades a las que deseamos acceder de la sección Pokemon de la API
 
 data class PokeApiResponse(
 
@@ -18,7 +18,7 @@ data class PokeApiResponse(
     @Expose @SerializedName("results") val results: List<PokeResult>
 )
 
-// PokeResult Obtiene una lista de Pokemones
+// PokeResult declara las pripiedades la lista de Pokemones en la API
 
 data class PokeResult(
     @Expose @SerializedName("name") val name: String,
